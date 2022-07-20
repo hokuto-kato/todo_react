@@ -16,6 +16,14 @@ export const App = () => {
 		setIncompleteTodo(newIncompleteTodo)
 		setTodoText("")
 	}
+	const addTodoEnter = (e) => {
+		if (!todoText.match(/\S/g)) return
+		if(!e.nativeEvent.isComposing && e.key === "Enter") {
+			const newIncompleteTodo = [...inCompleteTodo, todoText]
+			setIncompleteTodo(newIncompleteTodo)
+			setTodoText("")
+		}
+	}
 	const removeIncompleteTodo = (index) => {
 		const newIncompleteTodo = [...inCompleteTodo]
 		newIncompleteTodo.splice(index, 1)
@@ -42,7 +50,7 @@ export const App = () => {
 	}
 	return (
 		<>
-			<Header todoText={todoText} onChangeText={onChangeText} addTodo={addTodo}/>
+			<Header todoText={todoText} onChangeText={onChangeText} addTodo={addTodo} addTodoEnter={addTodoEnter}/>
 			<Incomplete inCompleteTodo={inCompleteTodo} completeTodo={completeTodo} removeIncompleteTodo={removeIncompleteTodo}/>
 			<Completed completedTodo={completedTodo} restoreTodo={restoreTodo} removeCompletedTodo={removeCompletedTodo}/>
 		</>

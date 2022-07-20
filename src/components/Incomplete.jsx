@@ -8,7 +8,7 @@ export const Incomplete = (props) => {
 			<ul className="list">
 				{inCompleteTodo.map((todo, index) => {
 					return (
-						<li className="list__item" key={todo}>
+						<li className="list__item" key={index}>
 							<button className="btn--complete material-symbols-outlined" type="button" title="complete tasks" onClick={() => completeTodo(index)}>radio_button_unchecked</button>
 							<p className="list__body">{todo}</p>
 							<button className="btn--delete material-symbols-outlined" type="button" title="delete tasks" onClick={() => removeIncompleteTodo(index)}>delete</button>

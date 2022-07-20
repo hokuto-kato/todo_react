@@ -8,7 +8,7 @@ export const Completed = (props) => {
 			<ul className="list">
 				{completedTodo.map((todo, index) => {
 					return (
-						<li className="list__item" key={todo}>
+						<li className="list__item" key={index}>
 							<span className="material-symbols-outlined btn--completed">done</span>
 							<p className="list__body">{todo}</p>
 							<button className="material-symbols-outlined" type="button" title="restore to incomplete" onClick={() => restoreTodo(index)}>arrow_upward</button>
