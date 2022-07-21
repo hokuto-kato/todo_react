@@ -10,10 +10,13 @@ export default defineConfig(({ mode }) => {
 		},
 		base: "./",
 		root: "./src",
+		css: {
+			devSourcemap: true,
+		},
 		build: {
 			outDir: "../docs",
 			emptyOutDir: true,
-			sourcemap: mode === "develop",
+			sourcemap: mode === "development",
 			minify: mode === "production" ? "terser" : false,
 			rollupOptions: {
 				output: {
